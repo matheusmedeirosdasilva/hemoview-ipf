@@ -1,0 +1,56 @@
+{
+  "name": "ipf-vpm-dashboard",
+  "version": "0.1.1",
+  "private": true,
+  "author": "Laboratorio",
+  "description": "Dashboard desktop para analisar a relacao entre plaquetas, VPM e IPF em exportacoes laboratoriais locais.",
+  "main": "src/main/main.js",
+  "scripts": {
+    "start": "electron .",
+    "check:node": "node --check src/main/main.js && node --check src/preload/preload.js && node --check src/renderer/app.js && node --check scripts/static-server.js",
+    "serve:renderer": "node scripts/static-server.js 4173",
+    "analyze": "python src/backend/analise_ipf.py",
+    "build:python": ".venv-build\\Scripts\\python.exe -m PyInstaller pyinstaller\\analise_ipf.spec --noconfirm --clean --distpath dist-python --workpath build\\pyinstaller",
+    "build": "npm.cmd run build:python && electron-builder --win nsis"
+  },
+  "dependencies": {
+    "plotly.js-dist-min": "^3.5.1"
+  },
+  "devDependencies": {
+    "electron": "^42.1.0",
+    "electron-builder": "^26.8.1"
+  },
+  "build": {
+    "appId": "br.lab.ipfvpm.dashboard",
+    "productName": "IPF VPM Dashboard",
+    "files": [
+      "src/**/*",
+      "config/**/*",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "dist-python/analise_ipf.exe",
+        "to": "backend/analise_ipf.exe"
+      },
+      {
+        "from": "config",
+        "to": "config"
+      }
+    ],
+    "asarUnpack": [
+      "src/backend/**",
+      "config/**"
+    ],
+    "win": {
+      "target": "nsis",
+      "signAndEditExecutable": false
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "id": [
+    "ID_Amostra",
+    "ID Amostra",
+    "Sample ID",
+    "Sample No.",
+    "Amostra",
+    "Codigo Amostra",
+    "Código Amostra",
+    "ID"
+  ],
+  "platelets": [
+    "Plaquetas_Global",
+    "Plaquetas",
+    "PLT",
+    "PLT-I",
+    "PLT-F",
+    "Platelets",
+    "Platelet Count"
+  ],
+  "vpm": [
+    "VPM",
+    "MPV",
+    "Mean Platelet Volume"
+  ],
+  "ipf": [
+    "IPF",
+    "IPF%",
+    "IPF %",
+    "IPF_Percent",
+    "Fração de Plaquetas Imaturas",
+    "Fracao de Plaquetas Imaturas"
+  ]
+}

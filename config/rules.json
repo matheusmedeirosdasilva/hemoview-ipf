@@ -1,0 +1,9 @@
+{
+  "platelet_threshold_per_ul": 150000,
+  "ipf_threshold_percent": 10.0,
+  "classifications": {
+    "peripheral_destruction": "Suspeita: Destruição Periférica",
+    "reduced_production": "Suspeita: Produção Medular Reduzida",
+    "no_thrombocytopenia": "Sem trombocitopenia pelo corte"
+  }
+}

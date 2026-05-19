@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IPF VPM Dashboard</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../../node_modules/plotly.js-dist-min/plotly.min.js"></script>
+    <script src="app.js" defer></script>
+  </head>
+  <body>
+    <header class="app-header">
+      <div class="brand-lockup">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <div>
+          <p class="eyebrow">Hematologia</p>
+          <h1>IPF VPM Dashboard</h1>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span id="statusText" class="status-chip" aria-live="polite">Aguardando importacao</span>
+        <button id="importButton" class="primary-button" type="button">
+          Importar CSV
+        </button>
+      </div>
+    </header>
+
+    <main class="dashboard-shell">
+      <section class="status-panel">
+        <div class="status-item">
+          <span>Arquivo</span>
+          <strong id="fileName">Nenhum arquivo carregado</strong>
+        </div>
+        <div class="status-item">
+          <span>Identificadores</span>
+          <strong id="privacyMode">Pseudonimizados</strong>
+        </div>
+        <div class="status-item">
+          <span>Corte plaquetas</span>
+          <strong>&lt; 150.000/uL</strong>
+        </div>
+        <div class="status-item">
+          <span>Corte IPF</span>
+          <strong>&gt; 10%</strong>
+        </div>
+      </section>
+
+      <section id="errorBanner" class="error-banner" hidden>
+        <strong>Erro na analise</strong>
+        <span id="errorMessage"></span>
+      </section>
+
+      <section class="metric-grid" aria-label="Resumo das amostras">
+        <article class="metric-card">
+          <span>Total</span>
+          <strong id="totalSamples">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Trombocitopenia</span>
+          <strong id="lowPlatelets">--</strong>
+        </article>
+        <article class="metric-card danger">
+          <span>Destruicao periferica</span>
+          <strong id="peripheralSuspicion">--</strong>
+        </article>
+        <article class="metric-card">
+          <span>Correlacao VPM/IPF</span>
+          <strong id="correlation">--</strong>
+        </article>
+      </section>
+
+      <section class="analysis-grid">
+        <div class="chart-panel">
+          <div class="panel-heading">
+            <div>
+              <h2>Mapa IPF x Plaquetas</h2>
+              <span id="chartSubtitle">Aguardando dados</span>
+            </div>
+          </div>
+          <div id="scatterPlot" class="plot" role="img" aria-label="Grafico de dispersao entre plaquetas e IPF"></div>
+        </div>
+
+        <aside class="table-panel">
+          <div class="panel-heading table-heading">
+            <div>
+              <h2>Amostras</h2>
+              <span id="tableCount">0 linhas</span>
+            </div>
+          </div>
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Amostra</th>
+                  <th>Plaquetas</th>
+                  <th>IPF</th>
+                  <th>Classe</th>
+                </tr>
+              </thead>
+              <tbody id="sampleTable">
+                <tr>
+                  <td colspan="4" class="empty-cell">Importe um CSV para visualizar os resultados.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </aside>
+      </section>
+    </main>
+  </body>
+</html>
