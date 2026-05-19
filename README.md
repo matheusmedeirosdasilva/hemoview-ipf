@@ -75,38 +75,48 @@ Caso queira clonar o repositório e rodar o ambiente de desenvolvimento, certifi
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-pip install -r requirements-build.txt```
+pip install -r requirements-build.txt
+```
 
 2. Configure o ambiente de build secundário (necessário para o empacotador):
-```python -m venv .venv-build
-.\.venv-build\Scripts\python.exe -m pip install -r requirements.txt -r requirements-build.txt```
+```powershell
+python -m venv .venv-build
+.\.venv-build\Scripts\python.exe -m pip install -r requirements.txt -r requirements-build.txt
+```
 
 3. Instale os módulos do Node.js e inicialize o Electron:
-
-```npm install
+```powershell
+npm install
 $env:PYTHON_PATH = "$PWD\.venv\Scripts\python.exe"
-npm start```
+npm start
+```
 
-Execution via Terminal (Apenas Backend)
+### Execution via Terminal (Apenas Backend)
 Para processar os dados diretamente pela linha de comando sem abrir a interface gráfica:
+```powershell
+python src/backend/analise_ipf.py C:\caminho\para\exportacao.csv --columns-config config/columns.json --rules-config config/rules.json
+```
 
-```python src/backend/analise_ipf.py C:\caminho\para\exportacao.csv --columns-config config/columns.json --rules-config config/rules.json```
+---
 
-## 📦 Distribuição e Compilação (Gerar .exe)
+## 📦 Distribuição e Compilação (Gerar `.exe`)
+
 Para gerar o instalador do Windows totalmente independente (que inclui o backend embutido via PyInstaller, dispensando a instalação do Python nas máquinas de bancada), execute:
 
-```npm run build```
+```powershell
+npm run build
+```
 
-O executável final pronto para instalação será gerado no diretório dist/.
+O executável final pronto para instalação será gerado no diretório `dist/`.
+
+---
 
 ## 👨‍🔬 Autor
-Matheus Medeiros Da Silva
-Biomedical Scientist (CRBM-2) | Clinical Analyst | Hospital and Laboratory Management | Hematology and Microscopy
 
-A integração de ferramentas tecnológicas, como Node e Electron, atua como um grande diferencial na minha prática profissional, permitindo o desenvolvimento 
-de soluções robustas para a otimização de rotinas laboratoriais e o aprimoramento da análise de dados em saúde.
+**Matheus Medeiros Da Silva** *Biomedical Scientist (CRBM-2) | Clinical Analyst | Hospital and Laboratory Management | Hematology and Microscopy*
 
-Localização: Fortaleza, CE
-LinkedIn: www.linkedin.com/in/matheus-medeiros-silva
-Contato: contato.matheusms.pro@gmail.com
+A integração de ferramentas tecnológicas, como Node e Electron, atua como um grande diferencial na minha prática profissional, permitindo o desenvolvimento de soluções robustas para a otimização de rotinas laboratoriais e o aprimoramento da análise de dados em saúde.
 
+- **Localização:** Fortaleza, CE
+- **LinkedIn:** [Matheus Medeiros Silva](https://www.linkedin.com/in/matheus-medeiros-silva)
+- **Contato:** contato.matheusms.pro@gmail.com
