@@ -113,7 +113,7 @@ O executável final pronto para instalação será gerado no diretório `dist/`.
 
 ## 👨‍🔬 Autor
 
-**Matheus Medeiros Da Silva** *Biomedical Scientist (CRBM-2) | Clinical Analyst | Hospital and Laboratory Management | Hematology and Microscopy*
+**Biomédico (CRBM-2) | Analista Clínico | Gestão Hospitalar e Laboratorial | Hematologia e Microscopia*
 
 A integração de ferramentas tecnológicas, como Node e Electron, atua como um grande diferencial na minha prática profissional, permitindo o desenvolvimento de soluções robustas para a otimização de rotinas laboratoriais e o aprimoramento da análise de dados em saúde.
 
